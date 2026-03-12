@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreMC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #00ff88;
+    --green-dim: #00cc66;
+    --dark: #050a06;
+    --card: #0a120b;
+    --border: #1a2e1c;
+  }
+
+  body {
+    background: var(--dark);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  /* Minecraft grid background */
+  .bg {
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Floating particles */
+  .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+  .particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--green);
+    border-radius: 1px;
+    opacity: 0;
+    animation: floatUp var(--dur) var(--delay) infinite ease-in;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Main container */
+  .hero {
+    position: relative; z-index: 10;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  /* Logo block */
+  .logo-wrap {
+    position: relative;
+    margin-bottom: 1rem;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .logo-icon {
+    font-size: 4rem;
+    display: block;
+    filter: drop-shadow(0 0 20px var(--green));
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { filter: drop-shadow(0 0 20px var(--green)); }
+    50% { filter: drop-shadow(0 0 40px var(--green)) drop-shadow(0 0 80px var(--green-dim)); }
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, var(--green) 50%, #00aa55 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    animation: fadeDown 0.9s 0.1s ease both;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(0,255,136,0.6);
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    animation: fadeDown 1s 0.2s ease both;
+  }
+
+  /* Divider */
+  .divider {
+    width: 200px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    margin: 0 auto 3rem;
+    animation: fadeIn 1s 0.4s ease both;
+  }
+
+  /* Shop Button */
+  .shop-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    animation: fadeUp 1s 0.5s ease both;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .shop-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--green);
+    transform: translateX(-101%);
+    transition: transform 0.35s ease;
+    z-index: -1;
+  }
+
+  .shop-btn:hover::before { transform: translateX(0); }
+  .shop-btn:hover { color: var(--dark); }
+
+  .shop-btn .arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.3rem;
+  }
+  .shop-btn:hover .arrow { transform: translateX(5px); }
+
+  /* Server IP badge */
+  .ip-badge {
+    margin-top: 3rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.4);
+    animation: fadeUp 1s 0.7s ease both;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .ip-badge span { color: var(--green); font-weight: 600; }
+
+  /* Corner decorations */
+  .corner {
+    position: fixed;
+    width: 60px; height: 60px;
+    border-color: rgba(0,255,136,0.3);
+    border-style: solid;
+  }
+  .corner-tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+  .corner-tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+  .corner-bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+  .corner-br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Corner decorations -->
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
+
+<div class="hero">
+  <div class="logo-wrap">
+    <span class="logo-icon">⛏️</span>
+  </div>
+
+  <h1>CoreMC</h1>
+  <p class="tagline">Survival · PvP · Community</p>
+  <div class="divider"></div>
+
+  <a href="shop.html" class="shop-btn">
+    <span>Enter Shop</span>
+    <span class="arrow">→</span>
+  </a>
+
+  <div class="ip-badge">Server IP: <span>play.coremc.xyz</span></div>
+</div>
+
+<script>
+  // Generate floating particles
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      --dur: ${4 + Math.random() * 6}s;
+      --delay: ${Math.random() * 8}s;
+      width: ${2 + Math.random() * 4}px;
+      height: ${2 + Math.random() * 4}px;
+      opacity: 0;
+    `;
+    container.appendChild(p);
+  }
+</script>
+</body>
+</html>
