@@ -79,9 +79,9 @@
     margin: 0 auto;
   }
 
-  /* SHOP GRID */
+  /* SHOP */
   .shop-section {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px 80px;
     position: relative;
@@ -101,127 +101,166 @@
 
   .ranks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: 20px;
   }
 
+  /* CARD */
   .rank-card {
     background: #111;
-    border: 2px solid #2a0000;
-    padding: 24px 18px 20px;
-    position: relative;
-    transition: border-color 0.2s, transform 0.15s;
-    cursor: pointer;
+    border: 2px solid #222;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
   }
-  .rank-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .rank-card:hover {
-    transform: translateY(-4px);
-  }
+  .rank-card:hover { transform: translateY(-5px); }
 
-  /* Per-card accent colors */
-  .rank-card.core   { border-color: #1a6fff; }
-  .rank-card.core:hover { border-color: #4d9fff; box-shadow: 0 0 18px #1a6fff44; }
-  .rank-card.core .rank-icon { color: #1a6fff; text-shadow: 0 0 10px #1a6fff88; }
-  .rank-card.core .rank-badge { background: #1a6fff22; color: #4d9fff; border-color: #1a6fff44; }
+  .card-top-bar { height: 4px; width: 100%; display: block; }
 
-  .rank-card.enhancer   { border-color: #00c853; }
-  .rank-card.enhancer:hover { border-color: #69f0ae; box-shadow: 0 0 18px #00c85344; }
-  .rank-card.enhancer .rank-icon { color: #00c853; text-shadow: 0 0 10px #00c85388; }
-  .rank-card.enhancer .rank-badge { background: #00c85322; color: #69f0ae; border-color: #00c85344; }
-
-  .rank-card.draco   { border-color: #aa00ff; }
-  .rank-card.draco:hover { border-color: #e040fb; box-shadow: 0 0 18px #aa00ff44; }
-  .rank-card.draco .rank-icon { color: #aa00ff; text-shadow: 0 0 10px #aa00ff88; }
-  .rank-card.draco .rank-badge { background: #aa00ff22; color: #e040fb; border-color: #aa00ff44; }
-
-  .rank-card.elite   { border-color: #ff6d00; }
-  .rank-card.elite:hover { border-color: #ffab40; box-shadow: 0 0 18px #ff6d0044; }
-  .rank-card.elite .rank-icon { color: #ff6d00; text-shadow: 0 0 10px #ff6d0088; }
-  .rank-card.elite .rank-badge { background: #ff6d0022; color: #ffab40; border-color: #ff6d0044; }
-
-  .rank-card.donater   { border-color: #8b0000; }
-  .rank-card.donater:hover { border-color: #ff1e1e; box-shadow: 0 0 18px #ff1e1e44; }
-  .rank-card.donater .rank-icon { color: #ff1e1e; text-shadow: 0 0 10px #ff1e1e88; }
-  .rank-card.donater .rank-badge { background: #ff1e1e22; color: #ff6666; border-color: #ff1e1e44; }
-
-  .rank-icon {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    display: block;
+  .card-body {
+    padding: 20px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .rank-name {
     font-family: 'Press Start 2P', monospace;
-    font-size: 0.75rem;
-    color: #fff;
-    margin-bottom: 12px;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
     letter-spacing: 1px;
   }
 
+  /* PRICES */
   .rank-price-block {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 14px;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
   }
-
   .rank-badge {
     display: inline-block;
-    font-size: 1.1rem;
-    padding: 3px 10px;
+    font-size: 1.15rem;
+    padding: 3px 11px;
     border: 1px solid;
     letter-spacing: 1px;
-    width: fit-content;
   }
 
-  .rank-note {
-    font-size: 1rem;
-    color: #666;
+  /* DIVIDER */
+  .perks-divider {
+    border: none;
+    border-top: 1px solid #222;
+    margin-bottom: 10px;
+  }
+
+  .perks-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.42rem;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* PERKS */
+  .perks-list {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 18px;
+  }
+  .perk-item {
+    font-size: 1.2rem;
+    color: #bbb;
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .perk-arrow {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  .no-perks-note {
+    font-size: 1.1rem;
+    color: #444;
     font-style: italic;
-    margin-top: 4px;
+    flex: 1;
+    margin-bottom: 18px;
   }
 
+  /* BUY BUTTON */
   .buy-btn {
     display: block;
     width: 100%;
     background: transparent;
-    border: 2px solid currentColor;
-    color: inherit;
+    border: 2px solid;
     font-family: 'Press Start 2P', monospace;
-    font-size: 0.55rem;
-    padding: 8px 0;
+    font-size: 0.5rem;
+    padding: 9px 0;
     letter-spacing: 1px;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
     text-transform: uppercase;
-    margin-top: 10px;
+    text-decoration: none;
+    text-align: center;
   }
-  .rank-card.core    .buy-btn { color: #4d9fff; border-color: #1a6fff; }
+
+  /* ── CORE ── */
+  .rank-card.core { border-color: #1a3a6f; }
+  .rank-card.core:hover { border-color: #4d9fff; box-shadow: 0 0 22px #1a6fff33; }
+  .rank-card.core .card-top-bar { background: #1a6fff; }
+  .rank-card.core .rank-name { color: #4d9fff; }
+  .rank-card.core .rank-badge { color: #4d9fff; border-color: #1a6fff55; background: #1a6fff11; }
+  .rank-card.core .perk-arrow { color: #1a6fff; }
+  .rank-card.core .buy-btn { color: #4d9fff; border-color: #1a6fff; }
+  .rank-card.core:hover .buy-btn { background: #1a6fff; color: #0d0d0d; }
+
+  /* ── ENHANCER ── */
+  .rank-card.enhancer { border-color: #003a1a; }
+  .rank-card.enhancer:hover { border-color: #69f0ae; box-shadow: 0 0 22px #00c85333; }
+  .rank-card.enhancer .card-top-bar { background: #00c853; }
+  .rank-card.enhancer .rank-name { color: #69f0ae; }
+  .rank-card.enhancer .rank-badge { color: #69f0ae; border-color: #00c85355; background: #00c85311; }
+  .rank-card.enhancer .perk-arrow { color: #00c853; }
   .rank-card.enhancer .buy-btn { color: #69f0ae; border-color: #00c853; }
-  .rank-card.draco   .buy-btn { color: #e040fb; border-color: #aa00ff; }
-  .rank-card.elite   .buy-btn { color: #ffab40; border-color: #ff6d00; }
-  .rank-card.donater .buy-btn { color: #ff6666; border-color: #ff1e1e; }
+  .rank-card.enhancer:hover .buy-btn { background: #00c853; color: #0d0d0d; }
 
-  .rank-card:hover .buy-btn {
-    background: currentColor;
-    color: #0d0d0d;
-  }
-  .rank-card.core:hover .buy-btn    { background: #4d9fff; color: #0d0d0d; }
-  .rank-card.enhancer:hover .buy-btn { background: #69f0ae; color: #0d0d0d; }
-  .rank-card.draco:hover .buy-btn   { background: #e040fb; color: #0d0d0d; }
-  .rank-card.elite:hover .buy-btn   { background: #ffab40; color: #0d0d0d; }
-  .rank-card.donater:hover .buy-btn { background: #ff6666; color: #0d0d0d; }
+  /* ── DRACO ── */
+  .rank-card.draco { border-color: #2a003a; }
+  .rank-card.draco:hover { border-color: #e040fb; box-shadow: 0 0 22px #aa00ff33; }
+  .rank-card.draco .card-top-bar { background: #aa00ff; }
+  .rank-card.draco .rank-name { color: #e040fb; }
+  .rank-card.draco .rank-badge { color: #e040fb; border-color: #aa00ff55; background: #aa00ff11; }
+  .rank-card.draco .perk-arrow { color: #aa00ff; }
+  .rank-card.draco .buy-btn { color: #e040fb; border-color: #aa00ff; }
+  .rank-card.draco:hover .buy-btn { background: #aa00ff; color: #0d0d0d; }
 
-  /* PAYMENT INFO */
+  /* ── ELITE ── */
+  .rank-card.elite { border-color: #3a1a00; }
+  .rank-card.elite:hover { border-color: #ffab40; box-shadow: 0 0 22px #ff6d0033; }
+  .rank-card.elite .card-top-bar { background: #ff6d00; }
+  .rank-card.elite .rank-name { color: #ffab40; }
+  .rank-card.elite .rank-badge { color: #ffab40; border-color: #ff6d0055; background: #ff6d0011; }
+  .rank-card.elite .perk-arrow { color: #ff6d00; }
+  .rank-card.elite .buy-btn { color: #ffab40; border-color: #ff6d00; }
+  .rank-card.elite:hover .buy-btn { background: #ff6d00; color: #0d0d0d; }
+
+  /* ── DONATER ── */
+  .rank-card.donater { border-color: #2a0000; }
+  .rank-card.donater:hover { border-color: #ff1e1e; box-shadow: 0 0 22px #ff1e1e33; }
+  .rank-card.donater .card-top-bar { background: #8b0000; }
+  .rank-card.donater .rank-name { color: #ff6666; }
+  .rank-card.donater .rank-badge { color: #ff6666; border-color: #ff1e1e55; background: #ff1e1e11; }
+  .rank-card.donater .buy-btn { color: #ff6666; border-color: #8b0000; }
+  .rank-card.donater:hover .buy-btn { background: #ff1e1e; color: #0d0d0d; }
+
+  /* PAYMENT BAR */
   .payment-bar {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto 60px;
     padding: 18px 28px;
     border: 2px solid #2a0000;
@@ -230,10 +269,10 @@
     align-items: center;
     gap: 24px;
     flex-wrap: wrap;
-    z-index: 1;
     position: relative;
+    z-index: 1;
   }
-  .payment-bar .pay-label {
+  .pay-label {
     font-family: 'Press Start 2P', monospace;
     font-size: 0.6rem;
     color: #666;
@@ -264,6 +303,12 @@
     position: relative;
     z-index: 1;
   }
+
+  @media (max-width: 600px) {
+    header { padding: 12px 16px; }
+    nav a { margin-left: 14px; font-size: 1.1rem; }
+    .payment-bar .note { margin-left: 0; }
+  }
 </style>
 </head>
 <body>
@@ -273,14 +318,14 @@
   <nav>
     <a href="#">Home</a>
     <a href="#">Shop</a>
-    <a href="#">Discord</a>
+    <a href="https://discord.gg/28WawgG6kU" target="_blank">Discord</a>
     <a href="#">Vote</a>
   </nav>
 </header>
 
 <div class="hero">
   <h1>Server Shop</h1>
-  <p>Support the server & grab your rank. Every donation keeps us alive.</p>
+  <p>Support the server &amp; grab your rank. Every donation keeps us alive.</p>
 </div>
 
 <div class="shop-section">
@@ -289,57 +334,97 @@
 
     <!-- CORE -->
     <div class="rank-card core">
-      <span class="rank-icon">💎</span>
-      <div class="rank-name">Core</div>
-      <div class="rank-price-block">
-        <span class="rank-badge">₹1000</span>
-        <span class="rank-badge">$12 USD</span>
+      <span class="card-top-bar"></span>
+      <div class="card-body">
+        <div class="rank-name">Core</div>
+        <div class="rank-price-block">
+          <span class="rank-badge">&#8377;1000</span>
+          <span class="rank-badge">$12 USD</span>
+        </div>
+        <hr class="perks-divider">
+        <div class="perks-label">Perks Included</div>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 8 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /feed</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /repair</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Daily Quests</li>
+        </ul>
+        <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
-      <button class="buy-btn">Purchase</button>
     </div>
 
     <!-- ENHANCER -->
     <div class="rank-card enhancer">
-      <span class="rank-icon">🟢</span>
-      <div class="rank-name">Enhancer</div>
-      <div class="rank-price-block">
-        <span class="rank-badge">₹600</span>
-        <span class="rank-badge">$8 USD</span>
+      <span class="card-top-bar"></span>
+      <div class="card-body">
+        <div class="rank-name">Enhancer</div>
+        <div class="rank-price-block">
+          <span class="rank-badge">&#8377;600</span>
+          <span class="rank-badge">$8 USD</span>
+        </div>
+        <hr class="perks-divider">
+        <div class="perks-label">Perks Included</div>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 5 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /repair</li>
+        </ul>
+        <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
-      <button class="buy-btn">Purchase</button>
     </div>
 
     <!-- DRACO -->
     <div class="rank-card draco">
-      <span class="rank-icon">🔮</span>
-      <div class="rank-name">Draco</div>
-      <div class="rank-price-block">
-        <span class="rank-badge">₹450</span>
-        <span class="rank-badge">$6 USD</span>
+      <span class="card-top-bar"></span>
+      <div class="card-body">
+        <div class="rank-name">Draco</div>
+        <div class="rank-price-block">
+          <span class="rank-badge">&#8377;450</span>
+          <span class="rank-badge">$6 USD</span>
+        </div>
+        <hr class="perks-divider">
+        <div class="perks-label">Perks Included</div>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 3 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+        </ul>
+        <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
-      <button class="buy-btn">Purchase</button>
     </div>
 
     <!-- ELITE -->
     <div class="rank-card elite">
-      <span class="rank-icon">🟠</span>
-      <div class="rank-name">Elite</div>
-      <div class="rank-price-block">
-        <span class="rank-badge">₹300</span>
-        <span class="rank-badge">$4 USD</span>
+      <span class="card-top-bar"></span>
+      <div class="card-body">
+        <div class="rank-name">Elite</div>
+        <div class="rank-price-block">
+          <span class="rank-badge">&#8377;300</span>
+          <span class="rank-badge">$4 USD</span>
+        </div>
+        <hr class="perks-divider">
+        <div class="perks-label">Perks Included</div>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 2 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+        </ul>
+        <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
-      <button class="buy-btn">Purchase</button>
     </div>
 
     <!-- DONATER -->
     <div class="rank-card donater">
-      <span class="rank-icon">🛒</span>
-      <div class="rank-name">Donater</div>
-      <div class="rank-price-block">
-        <span class="rank-badge">Any Amount</span>
+      <span class="card-top-bar"></span>
+      <div class="card-body">
+        <div class="rank-name">Donater</div>
+        <div class="rank-price-block">
+          <span class="rank-badge">Any Amount</span>
+        </div>
+        <hr class="perks-divider">
+        <div class="perks-label">Perks Included</div>
+        <p class="no-perks-note">No perks — pure support</p>
+        <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Donate</a>
       </div>
-      <p class="rank-note">No perks — pure support</p>
-      <button class="buy-btn">Donate</button>
     </div>
 
   </div>
