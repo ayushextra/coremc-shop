@@ -293,6 +293,88 @@
     font-style: italic;
   }
 
+  /* TOS SECTION */
+  .tos-section {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tos-box {
+    border: 1px solid #1e1e1e;
+    background: #0a0a0a;
+    padding: 28px 32px;
+  }
+
+  .tos-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: #444;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tos-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+
+  .tos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .tos-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #141414;
+  }
+
+  .tos-item:last-child {
+    border-bottom: none;
+  }
+
+  .tos-icon {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.4rem;
+    color: #8b0000;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .tos-text {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .tos-text strong {
+    color: #888;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .tos-footer-note {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
   /* FOOTER */
   footer {
     border-top: 2px solid #1a1a1a;
@@ -308,6 +390,8 @@
     header { padding: 12px 16px; }
     nav a { margin-left: 14px; font-size: 1.1rem; }
     .payment-bar .note { margin-left: 0; }
+    .tos-box { padding: 20px 18px; }
+    .tos-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -344,11 +428,12 @@
         <hr class="perks-divider">
         <div class="perks-label">Perks Included</div>
         <ul class="perks-list">
-          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 8 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 16 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 10 Home Sets</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /feed</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /repair</li>
-          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Daily Quests</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Core Kit</li>
         </ul>
         <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
@@ -366,9 +451,11 @@
         <hr class="perks-divider">
         <div class="perks-label">Perks Included</div>
         <ul class="perks-list">
-          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 5 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 8 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 6 Home Sets</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /repair</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Enhancer Kit</li>
         </ul>
         <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
@@ -386,8 +473,10 @@
         <hr class="perks-divider">
         <div class="perks-label">Perks Included</div>
         <ul class="perks-list">
-          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 3 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 6 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 4 Home Sets</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Draco Kit</li>
         </ul>
         <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
@@ -405,8 +494,9 @@
         <hr class="perks-divider">
         <div class="perks-label">Perks Included</div>
         <ul class="perks-list">
-          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 2 Vaults</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> 4 Vaults</li>
           <li class="perk-item"><span class="perk-arrow">&#9658;</span> /echest</li>
+          <li class="perk-item"><span class="perk-arrow">&#9658;</span> Elite Kit</li>
         </ul>
         <a href="https://discord.gg/28WawgG6kU" class="buy-btn" target="_blank">Purchase</a>
       </div>
@@ -430,12 +520,48 @@
   </div>
 </div>
 
-<div class="shop-section" style="padding-top:0;">
+<div class="shop-section" style="padding-top:0; padding-bottom: 32px;">
   <div class="payment-bar">
     <span class="pay-label">Payment Methods</span>
     <span class="payment-method">UPI</span>
     <span class="payment-method">CRYPTO</span>
     <span class="note">Questions? Open a ticket on Discord.</span>
+  </div>
+</div>
+
+<!-- TERMS OF SERVICE -->
+<div class="tos-section">
+  <div class="tos-box">
+    <div class="tos-title">Purchase Terms &amp; Conditions</div>
+    <div class="tos-grid">
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>No Refunds.</strong> All purchases are final. No refunds, chargebacks, or reversals will be issued under any circumstances.</span>
+      </div>
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>Agreement to Terms.</strong> By completing a purchase, you acknowledge and agree to all Terms of Service set forth by CoreMC.</span>
+      </div>
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>Age Requirement.</strong> You confirm that you are 18 years of age or older, or that you have obtained explicit consent from a parent or legal guardian prior to purchasing.</span>
+      </div>
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>Rank Delivery.</strong> Ranks are delivered manually. Please open a ticket on our Discord after payment with your proof of transaction.</span>
+      </div>
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>Server Rights.</strong> CoreMC reserves the right to revoke any rank or benefit at any time in the event of rule violations, abuse, or misconduct.</span>
+      </div>
+      <div class="tos-item">
+        <span class="tos-icon">&#9658;</span>
+        <span class="tos-text"><strong>Support &amp; Disputes.</strong> For any purchase-related issues, contact staff exclusively through a Discord support ticket. Do not DM admins directly.</span>
+      </div>
+    </div>
+    <div class="tos-footer-note">
+      Proceeding with any purchase constitutes full acceptance of the above terms.
+    </div>
   </div>
 </div>
 
